@@ -118,6 +118,8 @@ def main() -> None:
         for f in p.glob("*.jsonl"):
             if f.stem.startswith("agent-"):
                 continue
+            if not first_message(f):  # skip snapshot-only / empty sessions
+                continue
             convs.append((f.stat().st_mtime, f))
         if not convs:
             continue
