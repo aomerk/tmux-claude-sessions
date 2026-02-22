@@ -50,7 +50,13 @@ def decode_project_dir(encoded: str) -> Path | None:
                     return result
         return None
 
-    return match(Path("/"), parts)
+    result = match(Path("/"), parts)
+    if result is not None:
+        return result
+    # Filesystem walk failed (directory no longer exists) — reconstruct path
+    # from the token list as best-effort. The path won't exist but at least
+    # shows the user where the project used to be.
+    return Path("/") / "/".join(parts) if parts else None
 
 # ── extract first real user message ──────────────────────────────────────────
 
