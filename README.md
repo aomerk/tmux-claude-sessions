@@ -1,3 +1,5 @@
+
+
 # tmux-claude-sessions
 
 > Browse and resume all your Claude AI conversations directly from tmux
@@ -95,6 +97,7 @@ Inside the popup:
 | `J` / `K` | Scroll preview down / up |
 | `g` / `G` | Preview top / bottom |
 | `Ctrl-d` / `Ctrl-u` | Preview half-page down / up |
+| `Ctrl-f` / `Ctrl-b` | Preview page down / up |
 | `/` | Toggle preview pane |
 | Type anything | Fuzzy-filter sessions |
 
